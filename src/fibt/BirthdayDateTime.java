@@ -5,11 +5,31 @@
  */
 package fibt;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author Timothy Bradford
  */
 public class BirthdayDateTime {
+
+    public int getAge() {
+        if (this.day > LocalDate.now().getDayOfMonth() && this.month > LocalDate.now().getMonthValue()) {
+            return LocalDate.now().getYear() - this.year - 1;
+        }
+
+        return LocalDate.now().getYear() - this.year;
+    }
+
+    /**
+     * index string array of all months of the year starting at 1 == January
+     */
+    public static final String[] MONTHS = {"", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+
+    private int year;
+    private int day;
+    private int month;
+    private int age;
 
     public BirthdayDateTime(int year, int day, int month) {
         this.year = year;
@@ -58,12 +78,4 @@ public class BirthdayDateTime {
         }
     }
 
-    /**
-     * index string array of all months of the year starting at 1 == January
-     */
-    public static final String[] MONTHS = {"","January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
-
-    private int year;
-    private int day;
-    private int month;
 }
