@@ -5,14 +5,16 @@
  */
 package fibt;
 
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author ^_^
+ * @author Timothy Bradford
  */
 public class FIBT extends javax.swing.JFrame {
 
+    ArrayList<People> friends = new ArrayList<>();
     DefaultTableModel model;
 
     /**
@@ -263,16 +265,25 @@ public class FIBT extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addFriendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFriendActionPerformed
-        BirthdayDateTime b = new BirthdayDateTime(Integer.parseInt(yText.getText()), Integer.parseInt(dText.getText()), mCombo.getSelectedIndex());
-        model.insertRow(
-                model.getRowCount(),
+        BirthdayDateTime birthday = new BirthdayDateTime(Integer.parseInt(yText.getText()), Integer.parseInt(dText.getText()), mCombo.getSelectedIndex());
+
+        friends.add(new People(
+                        fnText.getText(),
+                        lnText.getText(),
+                        aText.getText(),
+                        eText.getText(),
+                        pnText.getText(),
+                        birthday
+                ));
+
+        model.insertRow(model.getRowCount(),
                 new Object[]{
                     fnText.getText() + " " + lnText.getText(),
                     pnText.getText(),
                     eText.getText(),
                     aText.getText(),
-                    b.getMonth() + "/" + b.getDay() + "/" + b.getYear(),
-                    b.getAge()
+                    birthday.getMonth() + "/" + birthday.getDay() + "/" + birthday.getYear(),
+                    birthday.getAge()
                 });
     }//GEN-LAST:event_addFriendActionPerformed
 
