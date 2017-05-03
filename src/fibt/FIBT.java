@@ -5,17 +5,22 @@
  */
 package fibt;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author ^_^
  */
 public class FIBT extends javax.swing.JFrame {
 
+    DefaultTableModel model;
+
     /**
      * Creates new form FIBT
      */
     public FIBT() {
         initComponents();
+        model = (DefaultTableModel) mainTable.getModel();
     }
 
     /**
@@ -49,6 +54,8 @@ public class FIBT extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        mainTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -190,15 +197,27 @@ public class FIBT extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab1", jPanel1);
 
+        mainTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Name", "Phone Number", "Email", "Address", "Birthday", "Age"
+            }
+        ));
+        jScrollPane1.setViewportView(mainTable);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 728, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 728, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 392, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 26, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab2", jPanel2);
@@ -217,14 +236,14 @@ public class FIBT extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void addFriendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFriendActionPerformed
-        // TODO add your handling code here:
+       model.insertRow(model.getRowCount(), new Object[]{fnText.getText() +" "+ lnText.getText(),pnText.getText(), eText.getText(), aText.getText(), "Not ready yet", "not ready yet" });
     }//GEN-LAST:event_addFriendActionPerformed
 
     private void aTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aTextActionPerformed
@@ -283,9 +302,11 @@ public class FIBT extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField lnText;
     private javax.swing.JTextField mText;
+    private javax.swing.JTable mainTable;
     private javax.swing.JTextField pnText;
     private javax.swing.JTextField yText;
     // End of variables declaration//GEN-END:variables
