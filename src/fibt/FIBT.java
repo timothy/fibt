@@ -76,6 +76,23 @@ public class FIBT extends javax.swing.JFrame {
             }
         });
 
+        yText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                yTextKeyReleased(evt);
+            }
+        });
+
+        dText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dTextActionPerformed(evt);
+            }
+        });
+        dText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                dTextKeyReleased(evt);
+            }
+        });
+
         jLabel1.setText("Last Name");
 
         jLabel2.setText("First Name");
@@ -247,12 +264,41 @@ public class FIBT extends javax.swing.JFrame {
 
     private void addFriendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFriendActionPerformed
         BirthdayDateTime b = new BirthdayDateTime(Integer.parseInt(yText.getText()), Integer.parseInt(dText.getText()), mCombo.getSelectedIndex());
-        model.insertRow(model.getRowCount(), new Object[]{fnText.getText() + " " + lnText.getText(), pnText.getText(), eText.getText(), aText.getText(), b.getMonth() + "/" + b.getDay() + "/" + b.getYear(), b.getAge()});
+        model.insertRow(
+                model.getRowCount(),
+                new Object[]{
+                    fnText.getText() + " " + lnText.getText(),
+                    pnText.getText(),
+                    eText.getText(),
+                    aText.getText(),
+                    b.getMonth() + "/" + b.getDay() + "/" + b.getYear(),
+                    b.getAge()
+                });
     }//GEN-LAST:event_addFriendActionPerformed
 
     private void aTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_aTextActionPerformed
+
+    private void dTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dTextActionPerformed
+
+    }//GEN-LAST:event_dTextActionPerformed
+
+    private void dTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dTextKeyReleased
+        try {// if is number
+            Integer.parseInt(dText.getText());
+        } catch (NumberFormatException e) {
+            dText.setText("");
+        }
+    }//GEN-LAST:event_dTextKeyReleased
+
+    private void yTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_yTextKeyReleased
+        try {// if is number
+            Integer.parseInt(yText.getText());
+        } catch (NumberFormatException e) {
+            yText.setText("");
+        }
+    }//GEN-LAST:event_yTextKeyReleased
 
     /**
      * @param args the command line arguments

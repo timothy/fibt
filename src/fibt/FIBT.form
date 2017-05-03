@@ -209,8 +209,15 @@
             <Component class="javax.swing.JTextField" name="pnText">
             </Component>
             <Component class="javax.swing.JTextField" name="yText">
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="yTextKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="dText">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dTextActionPerformed"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="dTextKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
