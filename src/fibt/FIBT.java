@@ -22,8 +22,8 @@ public class FIBT extends javax.swing.JFrame {
      */
     public FIBT() {
         initComponents();
-        for (int i = 0; i < BirthdayDateTime.MONTHS.length; i++) {
-            mCombo.addItem(BirthdayDateTime.MONTHS[i]);
+        for (String MONTHS : BirthdayDateTime.MONTHS) {
+            mCombo.addItem(MONTHS);
         }
 
         model = (DefaultTableModel) mainTable.getModel();

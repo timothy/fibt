@@ -6,8 +6,9 @@
 package fibt;
 
 /**
+ * This will store and organize a person's information
  *
- * @author ^_^
+ * @author Timothy Bradford
  */
 public class People {
 

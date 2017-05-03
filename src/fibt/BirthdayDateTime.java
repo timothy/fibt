@@ -8,7 +8,8 @@ package fibt;
 import java.time.LocalDate;
 
 /**
- *
+ * This will store a person's birthday in a logical and easy to use format
+ * 
  * @author Timothy Bradford
  */
 public class BirthdayDateTime {
