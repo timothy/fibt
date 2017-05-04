@@ -9,18 +9,10 @@ import java.time.LocalDate;
 
 /**
  * This will store a person's birthday in a logical and easy to use format
- * 
+ *
  * @author Timothy Bradford
  */
 public class BirthdayDateTime {
-
-    public int getAge() {
-        if (this.day > LocalDate.now().getDayOfMonth() && this.month > LocalDate.now().getMonthValue()) {
-            return LocalDate.now().getYear() - this.year - 1;
-        }
-
-        return LocalDate.now().getYear() - this.year;
-    }
 
     /**
      * index string array of all months of the year starting at 1 == January
@@ -30,7 +22,6 @@ public class BirthdayDateTime {
     private int year;
     private int day;
     private int month;
-    private int age;
 
     public BirthdayDateTime(int year, int day, int month) {
         this.year = year;
@@ -40,7 +31,15 @@ public class BirthdayDateTime {
 
     @Override
     public String toString() {
-        return "BirthdayDateTime{" + "year=" + year + ", day=" + day + ", month=" + month + '}';
+        return  "year=" + year + ", day=" + day + ", month=" + month + ", age=" + this.getAge();
+    }
+
+    public int getAge() {
+        if (this.day > LocalDate.now().getDayOfMonth() && this.month > LocalDate.now().getMonthValue()) {
+            return LocalDate.now().getYear() - this.year - 1;
+        }
+
+        return LocalDate.now().getYear() - this.year;
     }
 
     public int getYear() {
@@ -75,6 +74,7 @@ public class BirthdayDateTime {
         for (int i = 0; i < MONTHS.length; i++) {
             if (MONTHS[i].toUpperCase().equals(month.toUpperCase())) {
                 this.month = i;
+                return;
             }
         }
     }
