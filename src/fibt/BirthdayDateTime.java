@@ -31,7 +31,7 @@ public class BirthdayDateTime {
 
     @Override
     public String toString() {
-        return  "year=" + year + ", day=" + day + ", month=" + month + ", age=" + this.getAge();
+        return month + "/" + day + "/" + year;
     }
 
     public int getAge() {
