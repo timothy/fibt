@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
@@ -118,6 +120,7 @@ public class FIBT extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         mainTable = new javax.swing.JTable();
         export2ExcelButton = new javax.swing.JButton();
+        importButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -286,10 +289,16 @@ public class FIBT extends javax.swing.JFrame {
         jScrollPane1.setViewportView(mainTable);
 
         export2ExcelButton.setText("Export to Excel");
-        export2ExcelButton.setActionCommand("Export to Excel");
         export2ExcelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 export2ExcelButtonActionPerformed(evt);
+            }
+        });
+
+        importButton.setText("Import Excel File");
+        importButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                importButtonActionPerformed(evt);
             }
         });
 
@@ -298,8 +307,9 @@ public class FIBT extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 728, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(importButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(export2ExcelButton)
                 .addContainerGap())
         );
@@ -308,7 +318,9 @@ public class FIBT extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(export2ExcelButton)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(export2ExcelButton)
+                    .addComponent(importButton))
                 .addContainerGap())
         );
 
@@ -337,7 +349,7 @@ public class FIBT extends javax.swing.JFrame {
     private void addFriendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFriendActionPerformed
         BirthdayDateTime birthday = new BirthdayDateTime(Integer.parseInt(yText.getText()), Integer.parseInt(dText.getText()), mCombo.getSelectedIndex());
         People p = new People(fnText.getText(), lnText.getText(), aText.getText(), eText.getText(), pnText.getText(), birthday);
-        
+
         //Add row to excel file
         excelFile.addRow(p);
         friends.add(p);
@@ -384,6 +396,26 @@ public class FIBT extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_export2ExcelButtonActionPerformed
 
+    private void importButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importButtonActionPerformed
+        try {
+            excelFile.importFile();
+        } catch (IOException ex) {
+            Logger.getLogger(FIBT.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        excelFile.xls.forEach((p) -> {
+            model.insertRow(model.getRowCount(),
+                    new Object[]{
+                        p.getFirstName() + " " + p.getLastName(),
+                        p.getPhoneNumber(),
+                        p.getEmail(),
+                        p.getAddress(),
+                        p.getBirthday().toString(),
+                        p.getBirthday().getAge()
+                    });
+        });
+    }//GEN-LAST:event_importButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -426,6 +458,7 @@ public class FIBT extends javax.swing.JFrame {
     private javax.swing.JTextField eText;
     private javax.swing.JButton export2ExcelButton;
     private javax.swing.JTextField fnText;
+    private javax.swing.JButton importButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

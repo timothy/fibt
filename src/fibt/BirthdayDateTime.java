@@ -88,18 +88,19 @@ public class BirthdayDateTime {
         String d = "";
         String y = "";
         int count = 0;
+        int sCount = s.length();
 
-        while (s.charAt(count) != '/' && count < 11) {
+        while (count < s.length() && s.charAt(count) != '/') {
             m += s.charAt(count);
             count++;
         }
         count++;
-        while (s.charAt(count) != '/' && count < 11) {
+        while (count < s.length() && s.charAt(count) != '/') {
             d += s.charAt(count);
             count++;
         }
         count++;
-        while (s.charAt(count) != '/' && count < 11) {
+        while (count < s.length() && s.charAt(count) != '/') {
             y += s.charAt(count);
             count++;
         }

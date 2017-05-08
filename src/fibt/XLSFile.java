@@ -13,8 +13,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellType;
+//import org.apache.poi.ss.usermodel.Cell;
+//import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -31,6 +31,7 @@ public class XLSFile {
     public String bDataFormula1 = "=DATEDIF(F2,TODAY(),\"Y\") & \" Years, \" & DATEDIF(F2,TODAY(),\"YM\") & \" Months, \" & DATEDIF(F2,TODAY(),\"MD\") & \" Days\"";
     public String bDataFormula2 = "=DATEDIF(A2,NOW(),\"y\")";
     public String bDataFormula3 = "=ROUNDDOWN(YEARFRAC(A2, TODAY(), 1), 0)";
+    public ArrayList<People> xls = new ArrayList<>();
 
     private Workbook wb = new HSSFWorkbook();
     private Sheet sheet = wb.createSheet("Friend's Birthday & Contact Info");
@@ -43,13 +44,13 @@ public class XLSFile {
 
     private void populatColumns() {
 //String firstName, String lastName, String address, String email, String phoneNumber, BirthdayDateTime birthday
-        columnRow.createCell(0).setCellValue("First Name");//A
-        columnRow.createCell(1).setCellValue("Last Name");//B
-        columnRow.createCell(2).setCellValue("Address");//C
-        columnRow.createCell(3).setCellValue("Email");//D
-        columnRow.createCell(4).setCellValue("Phone Number");//E
-        columnRow.createCell(5).setCellValue("Birth Day");//F
-        columnRow.createCell(6).setCellValue("Age");//G
+        columnRow.createCell(0).setCellValue(Column.fisrtName);//A
+        columnRow.createCell(1).setCellValue(Column.lastName);//B
+        columnRow.createCell(2).setCellValue(Column.address);//C
+        columnRow.createCell(3).setCellValue(Column.email);//D
+        columnRow.createCell(4).setCellValue(Column.phoneNum);//E
+        columnRow.createCell(5).setCellValue(Column.bDay);//F
+        columnRow.createCell(6).setCellValue(Column.age);//G
     }
 
     public String getAgeFormula(int rowNum) {
@@ -81,23 +82,25 @@ public class XLSFile {
 
     public void importFile() throws FileNotFoundException, IOException {
         String filePath = "workbook.xls";
-        ArrayList<People> xls = new ArrayList<>();
         FileInputStream inputStream = new FileInputStream(new File(filePath));
 
         Workbook workbook = new HSSFWorkbook(inputStream);
         Sheet firstSheet = workbook.getSheetAt(0);
         Iterator<Row> iterator = firstSheet.iterator();
 
+        //Jump over the first row of column titles...
+        Boolean jump = true;
         while (iterator.hasNext()) {
             Row nextRow = iterator.next();
-
-            xls.add(new People(nextRow.getCell(0).getStringCellValue(),
-                    nextRow.getCell(1).getStringCellValue(),
-                    nextRow.getCell(2).getStringCellValue(),
-                    nextRow.getCell(3).getStringCellValue(),
-                    nextRow.getCell(4).getStringCellValue(),
-                    new BirthdayDateTime(nextRow.getCell(5).getStringCellValue())));
-
+            if (!jump) {
+                xls.add(new People(nextRow.getCell(0).getStringCellValue(),
+                        nextRow.getCell(1).getStringCellValue(),
+                        nextRow.getCell(2).getStringCellValue(),
+                        nextRow.getCell(3).getStringCellValue(),
+                        nextRow.getCell(4).getStringCellValue(),
+                        new BirthdayDateTime(nextRow.getCell(5).getStringCellValue())));
+            }
+            jump = false;
         }
 
         workbook.close();

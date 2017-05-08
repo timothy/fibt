@@ -28,5 +28,5 @@ public class Column {
     public static final String bDay = "Birth Day";//F
     public static final String age = "Age";//G
 
-    public static final String[] MONTHS = {fisrtName, lastName, address, email, phoneNum, bDay, age};
+    public static final String[] TITLES = {fisrtName, lastName, address, email, phoneNum, bDay, age};
 }
