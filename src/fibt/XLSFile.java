@@ -13,8 +13,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-//import org.apache.poi.ss.usermodel.Cell;
-//import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -37,11 +35,17 @@ public class XLSFile {
     private Sheet sheet = wb.createSheet("Friend's Birthday & Contact Info");
     Row columnRow;
 
+    /**
+     * Default constructor
+     */
     public XLSFile() {
         columnRow = sheet.createRow(0);
         populatColumns();
     }
 
+    /**
+     * Set column titles
+     */
     private void populatColumns() {
 //String firstName, String lastName, String address, String email, String phoneNumber, BirthdayDateTime birthday
         columnRow.createCell(0).setCellValue(Column.fisrtName);//A
@@ -53,10 +57,20 @@ public class XLSFile {
         columnRow.createCell(6).setCellValue(Column.age);//G
     }
 
+    /**
+     * 
+     * @param rowNum the row number of the birth date
+     * @return the excel formula needed to calculate the birth date
+     */
     public String getAgeFormula(int rowNum) {
         return "=DATEDIF(F" + rowNum + ",TODAY(),\"Y\") & \" Years, \" & DATEDIF(F" + rowNum + ",TODAY(),\"YM\") & \" Months, \" & DATEDIF(F" + rowNum + ",TODAY(),\"MD\") & \" Days\"";
     }
 
+    /**
+     * Saves the file to disc
+     * @throws FileNotFoundException
+     * @throws IOException 
+     */
     public void saveFile() throws FileNotFoundException, IOException {
         // Write the output to a file
         FileOutputStream fileOut = new FileOutputStream("workbook.xls");
@@ -64,6 +78,10 @@ public class XLSFile {
         fileOut.close();
     }
 
+    /**
+     * Adds a row with the persons data
+     * @param p 
+     */
     public void addRow(People p) {
         Row row = sheet.createRow(sheet.getLastRowNum() + 1);
 
@@ -80,6 +98,11 @@ public class XLSFile {
         row.createCell(6).setCellValue(getAgeFormula(row.getRowNum() + 1));//G
     }
 
+    /**
+     * Imports the excel file from the default location
+     * @throws FileNotFoundException
+     * @throws IOException 
+     */
     public void importFile() throws FileNotFoundException, IOException {
         String filePath = "workbook.xls";
         FileInputStream inputStream = new FileInputStream(new File(filePath));

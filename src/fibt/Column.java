@@ -11,11 +11,17 @@ package fibt;
  */
 public class Column {
 
+    /**
+     * 
+     */
     public static enum columnNames {
         fisrtName, lastName, adress, email,
         phoneNum, bDay, age
     }
 
+    /**
+     * 
+     */
     public static enum columnLetters {
         A, B, C, D, E, F, G
     }
