@@ -88,7 +88,6 @@ public class BirthdayDateTime {
         String d = "";
         String y = "";
         int count = 0;
-        int sCount = s.length();
 
         while (count < s.length() && s.charAt(count) != '/') {
             m += s.charAt(count);
@@ -109,5 +108,4 @@ public class BirthdayDateTime {
         this.setMonth(Integer.parseInt(m));
         this.setYear(Integer.parseInt(y));
     }
-
 }
