@@ -5,9 +5,13 @@
  */
 package fibt;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
@@ -16,6 +20,8 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 
 /**
+ * This will create an xls Excel document and can handle adding new people to the document.
+ * This requires the import of https://poi.apache.org/
  *
  * @author Timothy Bradford
  */
@@ -32,7 +38,10 @@ public class XLSFile {
 
     public XLSFile() {
         columnRow = sheet.createRow(0);
+        populatColumns();
+    }
 
+    private void populatColumns() {
 //String firstName, String lastName, String address, String email, String phoneNumber, BirthdayDateTime birthday
         columnRow.createCell(0).setCellValue("First Name");//A
         columnRow.createCell(1).setCellValue("Last Name");//B
@@ -41,10 +50,6 @@ public class XLSFile {
         columnRow.createCell(4).setCellValue("Phone Number");//E
         columnRow.createCell(5).setCellValue("Birth Day");//F
         columnRow.createCell(6).setCellValue("Age");//G
-    }
-
-    public void populatColumns() {
-
     }
 
     public String getAgeFormula(int rowNum) {
@@ -69,9 +74,33 @@ public class XLSFile {
         row.createCell(5).setCellValue(p.getBirthday().toString());//F
 
         // Cell cell = row.createCell(6);
-        //cell.setCellFormula(bDataFormula1);
+        // cell.setCellFormula(bDataFormula1);
         // cell.setCellType(CellType.FORMULA);
         row.createCell(6).setCellValue(getAgeFormula(row.getRowNum() + 1));//G
     }
 
+    public void importFile() throws FileNotFoundException, IOException {
+        String filePath = "workbook.xls";
+        ArrayList<People> xls = new ArrayList<>();
+        FileInputStream inputStream = new FileInputStream(new File(filePath));
+
+        Workbook workbook = new HSSFWorkbook(inputStream);
+        Sheet firstSheet = workbook.getSheetAt(0);
+        Iterator<Row> iterator = firstSheet.iterator();
+
+        while (iterator.hasNext()) {
+            Row nextRow = iterator.next();
+
+            xls.add(new People(nextRow.getCell(0).getStringCellValue(),
+                    nextRow.getCell(1).getStringCellValue(),
+                    nextRow.getCell(2).getStringCellValue(),
+                    nextRow.getCell(3).getStringCellValue(),
+                    nextRow.getCell(4).getStringCellValue(),
+                    new BirthdayDateTime(nextRow.getCell(5).getStringCellValue())));
+
+        }
+
+        workbook.close();
+        inputStream.close();
+    }
 }

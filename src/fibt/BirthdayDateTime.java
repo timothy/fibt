@@ -29,6 +29,10 @@ public class BirthdayDateTime {
         this.month = month;
     }
 
+    public BirthdayDateTime(String date) {
+        setFromString(date);
+    }
+
     @Override
     public String toString() {
         return month + "/" + day + "/" + year;
@@ -77,6 +81,32 @@ public class BirthdayDateTime {
                 return;
             }
         }
+    }
+
+    public final void setFromString(String s) {
+        String m = "";
+        String d = "";
+        String y = "";
+        int count = 0;
+
+        while (s.charAt(count) != '/' && count < 11) {
+            m += s.charAt(count);
+            count++;
+        }
+        count++;
+        while (s.charAt(count) != '/' && count < 11) {
+            d += s.charAt(count);
+            count++;
+        }
+        count++;
+        while (s.charAt(count) != '/' && count < 11) {
+            y += s.charAt(count);
+            count++;
+        }
+
+        this.setDay(Integer.parseInt(d));
+        this.setMonth(Integer.parseInt(m));
+        this.setYear(Integer.parseInt(y));
     }
 
 }
