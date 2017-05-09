@@ -6,7 +6,6 @@
 package fibt;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
@@ -18,7 +17,6 @@ import javax.swing.table.DefaultTableModel;
  */
 public class FIBT extends javax.swing.JFrame {
 
-    ArrayList<People> friends = new ArrayList<>();
     DefaultTableModel model;
     XLSFile excelFile = new XLSFile();
     User user;
@@ -495,7 +493,6 @@ public class FIBT extends javax.swing.JFrame {
 
         //Add row to excel file
         excelFile.addRow(p);
-        friends.add(p);// seve in an array list for easy access for later use (if needed)...
         model.insertRow(model.getRowCount(),
                 new Object[]{
                     fnText.getText() + " " + lnText.getText(),

@@ -58,7 +58,7 @@ public class XLSFile {
     }
 
     /**
-     * 
+     *
      * @param rowNum the row number of the birth date
      * @return the excel formula needed to calculate the birth date
      */
@@ -68,8 +68,9 @@ public class XLSFile {
 
     /**
      * Saves the file to disc
+     *
      * @throws FileNotFoundException
-     * @throws IOException 
+     * @throws IOException
      */
     public void saveFile() throws FileNotFoundException, IOException {
         // Write the output to a file
@@ -80,9 +81,11 @@ public class XLSFile {
 
     /**
      * Adds a row with the persons data
+     *
      * @param p a valid People object
      */
     public void addRow(People p) {
+        xls.add(p);
         Row row = sheet.createRow(sheet.getLastRowNum() + 1);
 
         row.createCell(0).setCellValue(p.getFirstName());//A
@@ -100,8 +103,9 @@ public class XLSFile {
 
     /**
      * Imports the excel file from the default location
+     *
      * @throws FileNotFoundException
-     * @throws IOException 
+     * @throws IOException
      */
     public void importFile() throws FileNotFoundException, IOException {
         String filePath = "workbook.xls";
@@ -116,7 +120,7 @@ public class XLSFile {
         while (iterator.hasNext()) {
             Row nextRow = iterator.next();
             if (!jump) {
-                xls.add(new People(nextRow.getCell(0).getStringCellValue(),
+                this.addRow(new People(nextRow.getCell(0).getStringCellValue(),
                         nextRow.getCell(1).getStringCellValue(),
                         nextRow.getCell(2).getStringCellValue(),
                         nextRow.getCell(3).getStringCellValue(),
