@@ -6,6 +6,7 @@
 package fibt;
 
 /**
+ * This is to structure the user info of this app
  *
  * @author Timothy Bradford
  */
@@ -14,7 +15,7 @@ public class User extends People {
     private String userName;
 
     /**
-     * 
+     *
      * @return The user's user name
      */
     public String getUserName() {

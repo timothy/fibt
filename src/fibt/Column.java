@@ -6,6 +6,7 @@
 package fibt;
 
 /**
+ * This class contains everything needed for the columns title
  *
  * @author Timothy Bradford
  */

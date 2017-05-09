@@ -11,8 +11,8 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-
 /**
+ * This is the main class for the GUI
  *
  * @author Timothy Bradford
  */
@@ -486,7 +486,8 @@ public class FIBT extends javax.swing.JFrame {
 
     /**
      * Add a friend to the JTable
-     * @param evt 
+     *
+     * @param evt
      */
     private void addFriendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFriendActionPerformed
         BirthdayDateTime birthday = new BirthdayDateTime(Integer.parseInt(yText.getText()), Integer.parseInt(dText.getText()), mCombo.getSelectedIndex());
@@ -515,7 +516,8 @@ public class FIBT extends javax.swing.JFrame {
 
     /**
      * make sure only numbers are stored in this...
-     * @param evt 
+     *
+     * @param evt
      */
     private void dTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dTextKeyReleased
         try {// if is number
@@ -527,6 +529,7 @@ public class FIBT extends javax.swing.JFrame {
 
     /**
      * make sure only numbers are stored in this...
+     *
      * @param evt KeyEvent
      */
     private void yTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_yTextKeyReleased
@@ -539,7 +542,8 @@ public class FIBT extends javax.swing.JFrame {
 
     /**
      * This will export the JTable to an excel file.
-     * @param evt 
+     *
+     * @param evt
      */
     private void export2ExcelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_export2ExcelButtonActionPerformed
         try {
@@ -553,14 +557,15 @@ public class FIBT extends javax.swing.JFrame {
 
     /**
      * Import a file from disk
-     * @param evt 
+     *
+     * @param evt
      */
     private void importButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importButtonActionPerformed
         try {
             excelFile.importFile();
         } catch (IOException ex) {
             Logger.getLogger(FIBT.class.getName()).log(Level.SEVERE, null, ex);
-             JOptionPane.showMessageDialog(null, "Error: Something went wrong.\nI hope you can find a way to get past this...", null, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error: Something went wrong.\nI hope you can find a way to get past this...", null, JOptionPane.ERROR_MESSAGE);
         }
 
         /**
@@ -581,7 +586,8 @@ public class FIBT extends javax.swing.JFrame {
 
     /**
      * Add user for later use.
-     * @param evt 
+     *
+     * @param evt
      */
     private void setUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setUserButtonActionPerformed
         BirthdayDateTime birthday;
@@ -590,7 +596,7 @@ public class FIBT extends javax.swing.JFrame {
         } else {
             birthday = new BirthdayDateTime(0, 0, 0);
         }
-        
+
         user = new User(userNameText.getText());
     }//GEN-LAST:event_setUserButtonActionPerformed
 

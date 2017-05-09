@@ -6,7 +6,7 @@
 package fibt;
 
 /**
- * Note: In order for this class to work you need to import the poi-3.16.jar file into the project
+ * Note: In order for this class to work you need to import the poi-3.16.jar file into the project's Libraries folder...
  * poi jar file can be found here: http://poi.apache.org/download.html
  */
 import java.io.File;
