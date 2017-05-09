@@ -8,6 +8,7 @@ package fibt;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -541,6 +542,8 @@ public class FIBT extends javax.swing.JFrame {
             excelFile.saveFile();
         } catch (IOException e) {
             System.err.println(e);
+            JOptionPane.showMessageDialog(null, "Error: The process cannot access the file because it is being used by another process.\n "
+                    + "Please make sure that the excel file is closed before you export to it.", null, JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_export2ExcelButtonActionPerformed
 
@@ -553,6 +556,7 @@ public class FIBT extends javax.swing.JFrame {
             excelFile.importFile();
         } catch (IOException ex) {
             Logger.getLogger(FIBT.class.getName()).log(Level.SEVERE, null, ex);
+             JOptionPane.showMessageDialog(null, "Error: Something went wrong.\nI hope you can find a way to get past this...", null, JOptionPane.ERROR_MESSAGE);
         }
 
         /**
