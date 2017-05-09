@@ -537,6 +537,10 @@ public class FIBT extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_yTextKeyReleased
 
+    /**
+     * This will export the JTable to an excel file.
+     * @param evt 
+     */
     private void export2ExcelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_export2ExcelButtonActionPerformed
         try {
             excelFile.saveFile();

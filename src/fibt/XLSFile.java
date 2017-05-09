@@ -5,6 +5,10 @@
  */
 package fibt;
 
+/**
+ * Note: In order for this class to work you need to import the poi-3.16.jar file into the project
+ * poi jar file can be found here: http://poi.apache.org/download.html
+ */
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
