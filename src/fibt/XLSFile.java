@@ -80,7 +80,7 @@ public class XLSFile {
 
     /**
      * Adds a row with the persons data
-     * @param p 
+     * @param p a valid People object
      */
     public void addRow(People p) {
         Row row = sheet.createRow(sheet.getLastRowNum() + 1);

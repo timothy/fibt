@@ -13,13 +13,17 @@ public class User extends People {
 
     private String userName;
 
+    /**
+     * 
+     * @return The user's user name
+     */
     public String getUserName() {
         return userName;
     }
 
     /**
-     * 
-     * @param userName 
+     *
+     * @param userName The user's user name
      */
     public void setUserName(String userName) {
         this.userName = userName;
@@ -27,20 +31,21 @@ public class User extends People {
 
     /**
      *
-     * @param firstName
-     * @param lastName
-     * @param address
-     * @param email
-     * @param phoneNumber
-     * @param birthday
+     * @param userName The user's user name
+     * @param firstName First name of the person
+     * @param lastName Last name of the person
+     * @param address A valid mailing address
+     * @param email A valid email address
+     * @param phoneNumber A valid phone number
+     * @param birthday Birthday object for the person
      */
-    public User(String firstName, String lastName, String address, String email, String phoneNumber, BirthdayDateTime birthday) {
+    public User(String userName, String firstName, String lastName, String address, String email, String phoneNumber, BirthdayDateTime birthday) {
         super(firstName, lastName, address, email, phoneNumber, birthday);
     }
 
     /**
      *
-     * @param userName
+     * @param userName The user's user name
      */
     public User(String userName) {
         super(userName, userName, userName, userName, userName, new BirthdayDateTime("00/00/0000"));

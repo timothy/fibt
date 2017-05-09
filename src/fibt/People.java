@@ -21,12 +21,12 @@ public class People {
 
     /**
      * 
-     * @param firstName
-     * @param lastName
-     * @param address
-     * @param email
-     * @param phoneNumber
-     * @param birthday 
+     * @param firstName First name of the person
+     * @param lastName Last name of the person
+     * @param address A valid mailing address
+     * @param email A valid email address
+     * @param phoneNumber A valid phone number
+     * @param birthday Birthday object for the person
      */
     public People(String firstName, String lastName, String address, String email, String phoneNumber, BirthdayDateTime birthday) {
         this.firstName = firstName;
@@ -39,7 +39,7 @@ public class People {
 
     /**
      * 
-     * @return 
+     * @return First name of the person
      */
     public String getFirstName() {
         return firstName;
@@ -47,7 +47,7 @@ public class People {
 
     /**
      * 
-     * @param firstName 
+     * @param firstName First name of the person
      */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -55,7 +55,7 @@ public class People {
 
     /**
      * 
-     * @return 
+     * @return Last name of the person
      */
     public String getLastName() {
         return lastName;
@@ -63,7 +63,7 @@ public class People {
 
     /**
      * 
-     * @param lastName 
+     * @param lastName Last name of the person
      */
     public void setLastName(String lastName) {
         this.lastName = lastName;
@@ -71,7 +71,7 @@ public class People {
 
     /**
      * 
-     * @return 
+     * @return A valid mailing address
      */
     public String getAddress() {
         return address;
@@ -79,7 +79,7 @@ public class People {
 
     /**
      * 
-     * @param address 
+     * @param address A valid mailing address
      */
     public void setAddress(String address) {
         this.address = address;
@@ -87,7 +87,7 @@ public class People {
 
     /**
      * 
-     * @return 
+     * @return A valid Email address
      */
     public String getEmail() {
         return email;
@@ -95,7 +95,7 @@ public class People {
 
     /**
      * 
-     * @param email 
+     * @param email A valid Email address
      */
     public void setEmail(String email) {
         this.email = email;
@@ -103,7 +103,7 @@ public class People {
 
     /**
      * 
-     * @return 
+     * @return A valid phone number
      */
     public String getPhoneNumber() {
         return phoneNumber;
@@ -111,7 +111,7 @@ public class People {
 
     /**
      * 
-     * @param phoneNumber 
+     * @param phoneNumber A valid phone number
      */
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
@@ -119,7 +119,7 @@ public class People {
 
     /**
      * 
-     * @return 
+     * @return the birthday object for the person
      */
     public BirthdayDateTime getBirthday() {
         return birthday;
@@ -127,7 +127,7 @@ public class People {
 
     /**
      * 
-     * @param birthday 
+     * @param birthday the birthday object for the person
      */
     public void setBirthday(BirthdayDateTime birthday) {
         this.birthday = birthday;
@@ -135,10 +135,10 @@ public class People {
 
     /**
      * 
-     * @return 
+     * @return all values of the people class
      */
     @Override
     public String toString() {
-        return "People{" + "firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + ", email=" + email + ", phoneNumber=" + phoneNumber + ", birthday=" + birthday + '}';
+        return "People{" + "firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + ", email=" + email + ", phoneNumber=" + phoneNumber + ", birthday=" + birthday.toString() + '}';
     }
 }

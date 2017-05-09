@@ -485,13 +485,17 @@ public class FIBT extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Add a friend to the JTable
+     * @param evt 
+     */
     private void addFriendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFriendActionPerformed
         BirthdayDateTime birthday = new BirthdayDateTime(Integer.parseInt(yText.getText()), Integer.parseInt(dText.getText()), mCombo.getSelectedIndex());
         People p = new People(fnText.getText(), lnText.getText(), aText.getText(), eText.getText(), pnText.getText(), birthday);
 
         //Add row to excel file
         excelFile.addRow(p);
-        friends.add(p);
+        friends.add(p);// seve in an array list for easy access for later use (if needed)...
         model.insertRow(model.getRowCount(),
                 new Object[]{
                     fnText.getText() + " " + lnText.getText(),
@@ -511,6 +515,10 @@ public class FIBT extends javax.swing.JFrame {
 
     }//GEN-LAST:event_dTextActionPerformed
 
+    /**
+     * make sure only numbers are stored in this...
+     * @param evt 
+     */
     private void dTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dTextKeyReleased
         try {// if is number
             Integer.parseInt(dText.getText());
@@ -519,6 +527,10 @@ public class FIBT extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_dTextKeyReleased
 
+    /**
+     * make sure only numbers are stored in this...
+     * @param evt KeyEvent
+     */
     private void yTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_yTextKeyReleased
         try {// if is number
             Integer.parseInt(yText.getText());
@@ -535,6 +547,10 @@ public class FIBT extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_export2ExcelButtonActionPerformed
 
+    /**
+     * Import a file from disk
+     * @param evt 
+     */
     private void importButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importButtonActionPerformed
         try {
             excelFile.importFile();
@@ -542,6 +558,9 @@ public class FIBT extends javax.swing.JFrame {
             Logger.getLogger(FIBT.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+        /**
+         * Iterate over each imported row and add them to the JTable
+         */
         excelFile.xls.forEach((p) -> {
             model.insertRow(model.getRowCount(),
                     new Object[]{
@@ -555,6 +574,10 @@ public class FIBT extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_importButtonActionPerformed
 
+    /**
+     * Add user for later use.
+     * @param evt 
+     */
     private void setUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setUserButtonActionPerformed
         BirthdayDateTime birthday;
         if (yText1.getText().length() > 0 && dText1.getText().length() > 0 && mCombo1.getSelectedIndex() > 0) {
