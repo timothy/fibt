@@ -551,12 +551,26 @@ public class FIBT extends javax.swing.JFrame {
      * @param evt
      */
     private void export2ExcelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_export2ExcelButtonActionPerformed
-        try {
-            excelFile.saveFile();
-        } catch (IOException e) {
-            System.err.println(e);
-            JOptionPane.showMessageDialog(null, "Error: The process cannot access the file because it is being used by another process.\n "
-                    + "Please make sure that the excel file is closed before you export to it.", null, JOptionPane.ERROR_MESSAGE);
+        String fileName = "\\workbook.xls";
+        JFileChooser chooser = new JFileChooser();
+        chooser.setCurrentDirectory(new java.io.File("."));
+        chooser.setDialogTitle("Select a Folder to save file to");
+        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        chooser.setAcceptAllFileFilterUsed(false);
+
+        if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+//            System.out.println("getCurrentDirectory(): " + chooser.getCurrentDirectory());
+//            System.out.println("Output of file dir : " + chooser.getSelectedFile() + fileName);
+
+            try {
+                excelFile.saveFile(chooser.getSelectedFile() + fileName);
+            } catch (IOException e) {
+                System.err.println(e);
+                JOptionPane.showMessageDialog(null, "Error: The process cannot access the file because it is being used by another process.\n "
+                        + "Please make sure that the excel file is closed before you export to it.", null, JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            System.out.println("No Selection ");
         }
     }//GEN-LAST:event_export2ExcelButtonActionPerformed
 
@@ -576,7 +590,8 @@ public class FIBT extends javax.swing.JFrame {
                 excelFile.importFile(filePath);
             } catch (IOException ex) {
                 Logger.getLogger(FIBT.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(null, "Error: Something went wrong.\nI hope you can find a way to get past this...", null, JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Error: Something went wrong.\nI hope you can find a way to get past this...\n"
+                        + "Make sure the a valid file is selected", null, JOptionPane.ERROR_MESSAGE);
             }
 
             /**
