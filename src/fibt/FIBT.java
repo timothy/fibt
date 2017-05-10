@@ -5,9 +5,11 @@
  */
 package fibt;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -46,6 +48,7 @@ public class FIBT extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFileChooser1 = new javax.swing.JFileChooser();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         addFriend = new javax.swing.JButton();
@@ -92,6 +95,8 @@ public class FIBT extends javax.swing.JFrame {
         mCombo1 = new javax.swing.JComboBox<>();
         userNameText = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
+
+        jFileChooser1.setDialogTitle("Please select xls file");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -561,27 +566,38 @@ public class FIBT extends javax.swing.JFrame {
      * @param evt
      */
     private void importButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importButtonActionPerformed
-        try {
-            excelFile.importFile();
-        } catch (IOException ex) {
-            Logger.getLogger(FIBT.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, "Error: Something went wrong.\nI hope you can find a way to get past this...", null, JOptionPane.ERROR_MESSAGE);
+        String filePath = "workbook.xls";
+        int returnVal = jFileChooser1.showOpenDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = jFileChooser1.getSelectedFile();
+            filePath = file.getAbsolutePath();
+
+            try {
+                excelFile.importFile(filePath);
+            } catch (IOException ex) {
+                Logger.getLogger(FIBT.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, "Error: Something went wrong.\nI hope you can find a way to get past this...", null, JOptionPane.ERROR_MESSAGE);
+            }
+
+            /**
+             * Iterate over each imported row and add them to the JTable
+             */
+            excelFile.xls.forEach((p) -> {
+                model.insertRow(model.getRowCount(),
+                        new Object[]{
+                            p.getFirstName() + " " + p.getLastName(),
+                            p.getPhoneNumber(),
+                            p.getEmail(),
+                            p.getAddress(),
+                            p.getBirthday().toString(),
+                            p.getBirthday().getAge()
+                        });
+            });
+        } else {
+            System.out.println("File access cancelled by user.");
         }
 
-        /**
-         * Iterate over each imported row and add them to the JTable
-         */
-        excelFile.xls.forEach((p) -> {
-            model.insertRow(model.getRowCount(),
-                    new Object[]{
-                        p.getFirstName() + " " + p.getLastName(),
-                        p.getPhoneNumber(),
-                        p.getEmail(),
-                        p.getAddress(),
-                        p.getBirthday().toString(),
-                        p.getBirthday().getAge()
-                    });
-        });
+        System.out.println(filePath);
     }//GEN-LAST:event_importButtonActionPerformed
 
     /**
@@ -663,6 +679,7 @@ public class FIBT extends javax.swing.JFrame {
     private javax.swing.JTextField fnText;
     private javax.swing.JTextField fnText1;
     private javax.swing.JButton importButton;
+    private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
