@@ -112,7 +112,19 @@ public class XLSFile {
      * @throws IOException
      */
     public void importFile() throws FileNotFoundException, IOException {
-        String filePath = "workbook.xls";
+        importFile("workbook.xls");
+    }
+
+    /**
+     * Imports the excel file from the default location
+     *
+     * @param filePath the path of the xls file
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
+    public void importFile(String filePath) throws FileNotFoundException, IOException {
+        //String filePath = "workbook.xls";
+        //String test = "C:\\Users\\^_^\\Documents\\NetBeansProjects\\FIBT\\workbook.xls";
         FileInputStream inputStream = new FileInputStream(new File(filePath));
 
         Workbook workbook = new HSSFWorkbook(inputStream);
