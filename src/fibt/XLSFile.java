@@ -52,13 +52,14 @@ public class XLSFile {
      */
     private void populatColumns() {
 //String firstName, String lastName, String address, String email, String phoneNumber, BirthdayDateTime birthday
-        columnRow.createCell(0).setCellValue(Column.fisrtName);//A
-        columnRow.createCell(1).setCellValue(Column.lastName);//B
-        columnRow.createCell(2).setCellValue(Column.address);//C
-        columnRow.createCell(3).setCellValue(Column.email);//D
-        columnRow.createCell(4).setCellValue(Column.phoneNum);//E
-        columnRow.createCell(5).setCellValue(Column.bDay);//F
-        columnRow.createCell(6).setCellValue(Column.age);//G
+        Column c = new Column();
+        columnRow.createCell(0).setCellValue(c.getFisrtName());//A
+        columnRow.createCell(1).setCellValue(c.getLastName());//B
+        columnRow.createCell(2).setCellValue(c.getAddress());//C
+        columnRow.createCell(3).setCellValue(c.getEmail());//D
+        columnRow.createCell(4).setCellValue(c.getPhoneNum());//E
+        columnRow.createCell(5).setCellValue(c.getbDay());//F
+        columnRow.createCell(6).setCellValue(c.getAge());//G
     }
 
     /**
