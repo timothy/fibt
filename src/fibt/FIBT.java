@@ -31,7 +31,7 @@ public class FIBT extends javax.swing.JFrame {
         initComponents();
         for (String MONTHS : BirthdayDateTime.MONTHS) {
             mCombo.addItem(MONTHS);
-            mCombo1.addItem(MONTHS);
+            //mCombo1.addItem(MONTHS);
         }
 
         model = (DefaultTableModel) mainTable.getModel();
@@ -77,23 +77,6 @@ public class FIBT extends javax.swing.JFrame {
         userNameLabal = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         setUserButton = new javax.swing.JButton();
-        fnText1 = new javax.swing.JTextField();
-        lnText1 = new javax.swing.JTextField();
-        aText1 = new javax.swing.JTextField();
-        eText1 = new javax.swing.JTextField();
-        pnText1 = new javax.swing.JTextField();
-        yText1 = new javax.swing.JTextField();
-        dText1 = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        mCombo1 = new javax.swing.JComboBox<>();
         userNameText = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
 
@@ -318,162 +301,38 @@ public class FIBT extends javax.swing.JFrame {
             }
         });
 
-        aText1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                aText1ActionPerformed(evt);
-            }
-        });
-
-        yText1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                yText1KeyReleased(evt);
-            }
-        });
-
-        dText1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dText1ActionPerformed(evt);
-            }
-        });
-        dText1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                dText1KeyReleased(evt);
-            }
-        });
-
-        jLabel10.setText("Last Name");
-
-        jLabel11.setText("First Name");
-
-        jLabel12.setText("Phone Number");
-
-        jLabel13.setText("Address");
-
-        jLabel14.setText("Birthday");
-
-        jLabel15.setText("Email");
-
-        jLabel16.setText("Day");
-
-        jLabel17.setText("Month");
-
-        jLabel18.setText("Year");
-
         jLabel19.setText("User Name");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(158, 158, 158)
-                .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel10)
-                .addGap(181, 181, 181))
             .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(setUserButton))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(setUserButton))
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addComponent(userNameText)
+                            .addGap(273, 273, 273)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                .addGap(54, 54, 54)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(fnText1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(eText1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lnText1, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(pnText1, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(53, 53, 53)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(aText1, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(userNameText, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                                .addComponent(mCombo1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(dText1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(22, 22, 22)
-                                        .addComponent(yText1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(59, 59, 59)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(172, 172, 172)
-                .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel12)
-                .addGap(162, 162, 162))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(331, 331, 331)
-                        .addComponent(jLabel13))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(127, 127, 127)
-                        .addComponent(jLabel17)
                         .addGap(171, 171, 171)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jLabel16)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel18))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel14)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addGap(160, 160, 160))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(224, 224, 224)
-                .addComponent(jLabel19)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel19)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 435, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(36, 36, 36))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fnText1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lnText1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(7, 7, 7)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(eText1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnText1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9)
-                .addComponent(aText1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(4, 4, 4)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dText1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(yText1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(114, 114, 114)
                 .addComponent(jLabel19)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(setUserButton)
                     .addComponent(userNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addContainerGap(269, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("User Info", jPanel3);
@@ -630,33 +489,17 @@ public class FIBT extends javax.swing.JFrame {
      * @param evt
      */
     private void setUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setUserButtonActionPerformed
-        BirthdayDateTime birthday;
-        if (yText1.getText().length() > 0 && dText1.getText().length() > 0 && mCombo1.getSelectedIndex() > 0) {
-            birthday = new BirthdayDateTime(Integer.parseInt(yText1.getText()), Integer.parseInt(dText1.getText()), mCombo1.getSelectedIndex());
-        } else {
-            birthday = new BirthdayDateTime(0, 0, 0);
-        }
+//        BirthdayDateTime birthday;
+//        if (yText1.getText().length() > 0 && dText1.getText().length() > 0 && mCombo1.getSelectedIndex() > 0) {
+//            birthday = new BirthdayDateTime(Integer.parseInt(yText1.getText()), Integer.parseInt(dText1.getText()), mCombo1.getSelectedIndex());
+//        } else {
+//            birthday = new BirthdayDateTime(0, 0, 0);
+//        }
         
         userNameLabal.setText("User Name:"+userNameText.getText());
 
         user = new User(userNameText.getText());
     }//GEN-LAST:event_setUserButtonActionPerformed
-
-    private void aText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aText1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_aText1ActionPerformed
-
-    private void yText1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_yText1KeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_yText1KeyReleased
-
-    private void dText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dText1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dText1ActionPerformed
-
-    private void dText1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dText1KeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dText1KeyReleased
 
     /**
      * @param args the command line arguments
@@ -695,27 +538,14 @@ public class FIBT extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField aText;
-    private javax.swing.JTextField aText1;
     private javax.swing.JButton addFriend;
     private javax.swing.JTextField dText;
-    private javax.swing.JTextField dText1;
     private javax.swing.JTextField eText;
-    private javax.swing.JTextField eText1;
     private javax.swing.JButton export2ExcelButton;
     private javax.swing.JTextField fnText;
-    private javax.swing.JTextField fnText1;
     private javax.swing.JButton importButton;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -731,16 +561,12 @@ public class FIBT extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField lnText;
-    private javax.swing.JTextField lnText1;
     private javax.swing.JComboBox<String> mCombo;
-    private javax.swing.JComboBox<String> mCombo1;
     private javax.swing.JTable mainTable;
     private javax.swing.JTextField pnText;
-    private javax.swing.JTextField pnText1;
     private javax.swing.JButton setUserButton;
     private javax.swing.JLabel userNameLabal;
     private javax.swing.JTextField userNameText;
     private javax.swing.JTextField yText;
-    private javax.swing.JTextField yText1;
     // End of variables declaration//GEN-END:variables
 }
