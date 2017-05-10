@@ -77,8 +77,19 @@ public class XLSFile {
      * @throws IOException
      */
     public void saveFile() throws FileNotFoundException, IOException {
+        saveFile("workbook.xls");
+    }
+
+    /**
+     * Saves the file to disc
+     *
+     * @param directory the string path of directory to be saved to
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
+    public void saveFile(String directory) throws FileNotFoundException, IOException {
         // Write the output to a file
-        FileOutputStream fileOut = new FileOutputStream("workbook.xls");
+        FileOutputStream fileOut = new FileOutputStream(directory);
         wb.write(fileOut);
         fileOut.close();
     }
