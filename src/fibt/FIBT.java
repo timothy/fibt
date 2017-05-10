@@ -74,6 +74,7 @@ public class FIBT extends javax.swing.JFrame {
         mainTable = new javax.swing.JTable();
         export2ExcelButton = new javax.swing.JButton();
         importButton = new javax.swing.JButton();
+        userNameLabal = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         setUserButton = new javax.swing.JButton();
         fnText1 = new javax.swing.JTextField();
@@ -278,6 +279,8 @@ public class FIBT extends javax.swing.JFrame {
             }
         });
 
+        userNameLabal.setText("This is for user: Default User");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -288,12 +291,18 @@ public class FIBT extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(export2ExcelButton)
                 .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(267, 267, 267)
+                .addComponent(userNameLabal)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(userNameLabal)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(export2ExcelButton)
                     .addComponent(importButton))
@@ -627,6 +636,8 @@ public class FIBT extends javax.swing.JFrame {
         } else {
             birthday = new BirthdayDateTime(0, 0, 0);
         }
+        
+        userNameLabal.setText("User Name:"+userNameText.getText());
 
         user = new User(userNameText.getText());
     }//GEN-LAST:event_setUserButtonActionPerformed
@@ -727,6 +738,7 @@ public class FIBT extends javax.swing.JFrame {
     private javax.swing.JTextField pnText;
     private javax.swing.JTextField pnText1;
     private javax.swing.JButton setUserButton;
+    private javax.swing.JLabel userNameLabal;
     private javax.swing.JTextField userNameText;
     private javax.swing.JTextField yText;
     private javax.swing.JTextField yText1;
